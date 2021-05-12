@@ -1,0 +1,101 @@
+.square {
+    -fx-border-style: solid;
+    
+}
+
+.wallup {
+    -fx-border-style: solid;
+    -fx-border-width: 7 1 1 1;
+    
+}
+
+.wallright {
+    -fx-border-style: solid;
+    -fx-border-width: 1 7 1 1;
+    
+}
+
+.walldown {
+    -fx-border-style: solid;
+    -fx-border-width: 1 1 7 1;
+    
+}
+
+.wallleft{
+    -fx-border-style: solid;
+    -fx-border-width: 1 1 1 7;
+    
+}
+
+.wallupright {
+    -fx-border-style: solid  ;
+    -fx-border-width: 7 7 1 1;
+    
+}
+
+.wallupdown {
+    -fx-border-style: solid ;
+    -fx-border-width: 7 1 7 1;
+    
+}
+
+.wallupleft {
+    -fx-border-style: solid;
+    -fx-border-width: 7 1 1 7;
+    
+}
+
+.wallrightdown {
+    -fx-border-style: solid ;
+    -fx-border-width: 1 7 7 1;
+    
+}
+
+.wallrightleft {
+    -fx-border-style: solid;
+    -fx-border-width: 1 7 1 7;
+    
+}
+
+.walldownleft {
+    -fx-border-style: solid;
+    -fx-border-width: 1 1 7 7;
+    
+}
+
+.walluprightdown {
+    -fx-border-style: solid ;
+    -fx-border-width: 7 7 7 1;
+    
+}
+
+.walluprightleft {
+    -fx-border-style: solid;
+    -fx-border-width: 7 7 1 7;
+}
+
+.wallupdownleft {
+    -fx-border-style: solid;
+    -fx-border-width: 7 1 7 7;
+    
+}
+
+.wallrightdownleft {
+    -fx-border-style: solid;
+    -fx-border-width: 1 7 7 7;
+    
+}
+
+.selected {
+    -fx-backgrond-color: silver;
+}
+
+.selectable {
+    -fx-border-style: solid;
+    -fx-border-width: 5;
+    -fx-border-color: gold;
+}
+
+.square:hover {
+    -fx-background-color: ghostwhite;
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+
+<ToolBar fx:id="menu" orientation="VERTICAL" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boardgame.MenuController">
+  <items>
+      <Button alignment="CENTER" mnemonicParsing="false" onAction="#switchToGame" prefHeight="100.0" prefWidth="500.0" text="Új játék">
+         <font>
+            <Font size="38.0" />
+         </font></Button>
+      <Button alignment="CENTER" layoutX="10.0" layoutY="11.0" mnemonicParsing="false" onAction="#switchToResult" prefHeight="100.0" prefWidth="500.0" text="Legjobb eredmények">
+         <font>
+            <Font size="38.0" />
+         </font></Button>
+      <Button alignment="CENTER" layoutX="10.0" layoutY="11.0" mnemonicParsing="false" onAction="#onQuit" prefHeight="100.0" prefWidth="500.0" text="Kilépés">
+         <font>
+            <Font size="38.0" />
+         </font></Button>
+  </items>
+   <opaqueInsets>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </opaqueInsets>
+</ToolBar>
