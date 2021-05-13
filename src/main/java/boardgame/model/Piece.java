@@ -3,11 +3,20 @@ package boardgame.model;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 
+/**
+ * Egy {@code Piece} objetumot reprezentál.
+ */
 public class Piece {
 
     private final PieceType type;
     private final ObjectProperty<Position> position = new SimpleObjectProperty<>();
 
+    /**
+     * Egy {@code Piece} objektumot hoz létre.
+     *
+     * @param type egy darab típus
+     * @param position egy kezdő pozició
+     */
     public Piece(PieceType type, Position position) {
         this.type = type;
         this.position.set(position);
@@ -21,11 +30,21 @@ public class Piece {
         return position.get();
     }
 
+    /**
+     * Egy {@code Piece} objektumot mozgat az adott irányba
+     *
+     * @param direction az irány amelybe mozgunk
+     */
     public void moveTo(Direction direction) {
         Position newPosition = position.get().moveTo(direction);
         position.set(newPosition);
     }
 
+    /**
+     * Egy pozicióhoz tartozó tulajdonságot add vissza.
+     *
+     * @return egy pozicót ad vissza
+     */
     public ObjectProperty<Position> positionProperty() {
         return position;
     }
@@ -34,13 +53,4 @@ public class Piece {
         return type.toString() + position.get().toString();
     }
 
-    public static void main(String[] args) {
-        Piece piece = new Piece(PieceType.PLAYER, new Position(0, 0));
-        piece.positionProperty().addListener((observableValue, oldPosition, newPosition) -> {
-            System.out.printf("%s -> %s\n", oldPosition.toString(), newPosition.toString());
-        });
-        System.out.println(piece);
-        piece.moveTo(PawnDirection.RIGHT);
-        System.out.println(piece);
-    }
 }

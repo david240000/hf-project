@@ -1,9 +1,8 @@
 package boardgame;
 
 import boardgame.model.BoardGameModel;
-import boardgame.model.LastResult;
-import boardgame.model.Result;
-import boardgame.model.Results;
+import boardgame.result.Result;
+import boardgame.result.Results;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,7 +17,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.tinylog.Logger;
 
-import javax.script.Bindings;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -37,20 +35,19 @@ public class WinController {
 
     private int steps;
 
-
-    @FXML
-    private void initialize(){
-        this.steps = BoardGameModel.getSteps();
+    public void setSteps(int steps){
+        this.steps = steps;
+        Logger.info("Settings steps to {}", steps);
     }
 
     @FXML
     private void switchBack(ActionEvent event) throws IOException {
         var objectMapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
         name1 = name.getText();
-        var result = new Result(name1,BoardGameModel.getSteps());
+        var result = new Result(name1,steps);
         Logger.debug("Result this: {}, {} added", name1,steps);
         try {
-            this.list = objectMapper.readValue(new FileReader("target/classes/result.json"), Results.class);
+            this.list = objectMapper.readValue(new FileReader("result.json"), Results.class);
         } catch (JsonMappingException e) {
             e.printStackTrace();
         } catch (FileNotFoundException e) {
@@ -62,13 +59,13 @@ public class WinController {
         }
         list.getList().add(result);
         Collections.sort(list.getList());
-        try(var writer = new FileWriter("target/classes/result.json") ){
+        try(var writer = new FileWriter("result.json") ){
             objectMapper.writeValue(writer, list);
         }
 
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/menu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/result.fxml"));
         stage.setScene(new Scene(root));
         stage.show();
     }

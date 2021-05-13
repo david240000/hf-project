@@ -1,6 +1,6 @@
 package boardgame;
 
-import boardgame.model.Results;
+import boardgame.result.Results;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,11 +14,9 @@ import javafx.scene.Scene;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import javax.xml.transform.Result;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.List;
 
 public class ResultController {
     private Results list;
@@ -45,7 +43,7 @@ public class ResultController {
     private void initialize() {
         var objectMapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
         try {
-            this.list = objectMapper.readValue(new FileReader("target/classes/result.json"), Results.class);
+            this.list = objectMapper.readValue(new FileReader("result.json"), Results.class);
         } catch (JsonMappingException e) {
             e.printStackTrace();
         } catch (FileNotFoundException e) {

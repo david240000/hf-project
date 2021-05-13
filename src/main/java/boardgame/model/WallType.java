@@ -1,5 +1,8 @@
 package boardgame.model;
 
+/**
+ * Egy faltípus amely egy adott poziciót jellemez
+ */
 public enum WallType {
     UP(new PawnDirection[]{PawnDirection.UP}),
     RIGHT(new PawnDirection[]{PawnDirection.RIGHT}),
@@ -17,13 +20,23 @@ public enum WallType {
     RIGHT_DOWN_LEFT(new PawnDirection[]{PawnDirection.RIGHT, PawnDirection.DOWN, PawnDirection.LEFT}),
     NONE(new PawnDirection[]{});
 
-    private final PawnDirection[] bedirections;
+    private final PawnDirection[] beddirections;
 
+    /**
+     * Létrehoz egy {@code WallType} objektumot.
+     *
+     * @param directions egy irányok egy töbje
+     */
     WallType(PawnDirection[] directions) {
-        this.bedirections =directions;
+        this.beddirections = directions;
     }
 
+    /**
+     * Egy faltípushoz visszadja azokat az irányokat amelyekbe nem lehet haladni.
+     *
+     * @return egy tőmbőt ad vissza melben a rossz irányok vannak
+     */
     public PawnDirection[] getBedDirections(){
-        return bedirections;
+        return beddirections;
     }
 }

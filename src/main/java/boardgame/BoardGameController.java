@@ -4,11 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import boardgame.model.LastResult;
-import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -22,8 +18,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 import javafx.stage.Stage;
-import javafx.stage.Window;
-import javafx.stage.WindowEvent;
 import org.tinylog.Logger;
 
 import boardgame.model.BoardGameModel;
@@ -76,7 +70,7 @@ public class BoardGameController {
 
     private StackPane createSquare(int i, int j) {
         var square = new StackPane();
-        var wallType = model.getWall(i,j).wallType();
+        var wallType = model.getWall(i,j).getWallType();
         switch (wallType){
             case UP:square.getStyleClass().add("wallup");break;
             case RIGHT:square.getStyleClass().add("wallright");break;
@@ -258,11 +252,12 @@ public class BoardGameController {
     }
 
     private void switchToWin(MouseEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/win.fxml"));
+        Parent root = fxmlLoader.load();
+        WinController controller = fxmlLoader.<WinController>getController();
+        controller.setSteps(model.getSteps());
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/win.fxml"));
-        stage.setTitle("Nyertél");
         stage.setScene(new Scene(root));
-        Logger.info("Going to win screen");
         stage.show();
     }
 
