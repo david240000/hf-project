@@ -22,16 +22,26 @@ public class Piece {
         this.position.set(position);
     }
 
+    /**
+     * A {@code Piece} típusát adja vissza.
+     *
+     * @return {@code Piece} típusát adja vissza
+     */
     public PieceType getType() {
         return type;
     }
 
+    /**
+     * A {@code Piece} objektum pozicióját adja vissza.
+     *
+     * @return a {@code Piece} objektum pozicióját adja vissza
+     */
     public Position getPosition() {
         return position.get();
     }
 
     /**
-     * Egy {@code Piece} objektumot mozgat az adott irányba
+     * Egy {@code Piece} objektumot mozgat az adott irányba.
      *
      * @param direction az irány amelybe mozgunk
      */
@@ -49,6 +59,11 @@ public class Piece {
         return position;
     }
 
+    /**
+     * Az objektum kiíratásához szükséges sztringet állít elő.
+     *
+     * @return egy olyan sztring amely az objektumot reprezentálja
+     */
     public String toString() {
         return type.toString() + position.get().toString();
     }

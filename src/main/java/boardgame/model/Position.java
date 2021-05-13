@@ -2,6 +2,9 @@ package boardgame.model;
 
 /**
  * Egy poziciót ábrázoló osztály.
+ *
+ * @param row sor index
+ * @param col oszlop index
  */
 public record Position(int row, int col) {
 
@@ -15,6 +18,11 @@ public record Position(int row, int col) {
         return new Position(row + direction.getRowChange(), col + direction.getColChange());
     }
 
+    /**
+     * Az objektum kiíratásához szükséges sztringet állít elő.
+     *
+     * @return egy olyan sztring amely az objektumot reprezentálja
+     */
     public String toString() {
         return String.format("(%d,%d)", row, col);
     }

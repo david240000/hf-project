@@ -1,7 +1,7 @@
 package boardgame.model;
 
 /**
- * Egy pozicióhoz faltipus reprezentáló osztály
+ * Egy pozicióhoz faltipus reprezentáló osztály.
  */
 public class Wall {
 
@@ -20,10 +20,20 @@ public class Wall {
         this.wallType = wallType;
     }
 
+    /**
+     * A {@code Wall} pozicióját adja vissza.
+     *
+     * @return a {@code Wall} pozicióját adja vissza
+     */
     public Position getPosition() {
         return position;
     }
 
+    /**
+     * A {@code Wall} típusát adja vissza.
+     *
+     * @return a {@code Wall} típusát adja vissza
+     */
     public WallType getWallType() {
         return wallType;
     }

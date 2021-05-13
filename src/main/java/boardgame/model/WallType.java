@@ -1,7 +1,7 @@
 package boardgame.model;
 
 /**
- * Egy faltípus amely egy adott poziciót jellemez
+ * Egy faltípus amely egy adott poziciót jellemez.
  */
 public enum WallType {
     UP(new PawnDirection[]{PawnDirection.UP}),

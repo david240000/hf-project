@@ -52,16 +52,38 @@ public class BoardGameModel {
         steps = 0;
     }
 
+    /**
+     * Vissa adja a játékost reprezentáló {@code Piece} objektumot.
+     *
+     * @return vissa adja a játékost reprezentáló {@code Piece} objektumot
+     */
     public Piece getPlayer() {
         return player;
     }
 
+    /**
+     * Vissa adja a szörnyet reprezentáló {@code Piece} objektumot.
+     *
+     * @return vissa adja a szörnyet reprezentáló {@code Piece} objektumot
+     */
     public Piece getMonster() {
         return monster;
     }
 
+    /**
+     * Visszadja a megtett lépések számát.
+     *
+     * @return a megtett lépések számával tér vissza
+     */
     public int getSteps(){return steps;}
 
+    /**
+     * Visszadja a egy sor és oszlop keresztmeccetéhez tartozó falltípust.
+     *
+     * @param row az sor indexe
+     * @param col az oszlop indexe
+     * @return egy faltípusssal tér vissza
+     */
     public Wall getWall(int row, int col) {
         return walls[row][col];
     }
@@ -105,7 +127,7 @@ public class BoardGameModel {
      *
      * @param piece az a darab olyektum amelynek az adott irányba való mozgásának helyeségéy hatáározza meg
      * @param direction az az irány amelybe szerentnénk mozgati a darabot.
-     * @return
+     * @return logikai értékkel ami azt mutatja hogy a {@code Piece} az adott irányba mehet e
      */
     public boolean isValidMove(Piece piece, PawnDirection direction) {
         Position oldPosition = piece.getPosition();
@@ -229,6 +251,11 @@ public class BoardGameModel {
         return isMonsterWin() || isPlayerWin();
     }
 
+    /**
+     * Az objektum kiíratásához szükséges sztringet állít elő.
+     *
+     * @return egy olyan sztring amely az objektumot reprezentálja
+     */
     public String toString() {
         StringJoiner joiner = new StringJoiner(",", "[", "]");
         joiner.add(player.toString());

@@ -4,10 +4,21 @@ package boardgame.model;
  * Egy irány határoz meg.
  */
 public enum PawnDirection implements Direction {
-
+    /**
+     * Felfele irány.
+     */
     UP(-1, 0),
+    /**
+     * Jobbra irány.
+     */
     RIGHT(0, 1),
+    /**
+     * Lefele irány.
+     */
     DOWN(1, 0),
+    /**
+     * Balra irány.
+     */
     LEFT(0, -1);
 
     private final int rowChange;
@@ -25,10 +36,20 @@ public enum PawnDirection implements Direction {
         this.colChange = colChange;
     }
 
+    /**
+     * A sorváltozáshoz tartozó metódus.
+     *
+     * @return a sorváltozás mértéke
+     */
     public int getRowChange() {
         return rowChange;
     }
 
+    /**
+     * Az oszlopváltozáshoz tartozó metódus.
+     *
+     * @return az oszlopváltozás mértéke
+     */
     public int getColChange() {
         return colChange;
     }
