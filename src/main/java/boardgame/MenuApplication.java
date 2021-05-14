@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.tinylog.Logger;
 
 public class MenuApplication extends Application {
 
@@ -24,6 +25,7 @@ public class MenuApplication extends Application {
         menuStage.show();
         File file = new File("result.json");
         if (!file.isFile()){
+            Logger.info("Creating result.json file");
             file.createNewFile();
             var objectMapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
             Results list = new Results();

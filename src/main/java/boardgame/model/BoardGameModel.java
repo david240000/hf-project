@@ -53,6 +53,27 @@ public class BoardGameModel {
     }
 
     /**
+     * A játéktáblát létrehozza és a paraméterként kapott játékost és szörnyet elhelyezi rajta.
+     *
+     * @param player a játékos amit a táblára helyez
+     * @param monster a szörny amit a táblára helyez
+     */
+    public BoardGameModel(Piece player, Piece monster){
+        if (isOnBoard(player.getPosition()) && isOnBoard(monster.getPosition()) && player.getType() == PieceType.PLAYER && monster.getType() == PieceType.MONSTER) {
+            for (int i = 0; i < BOARD_SIZE; i++) {
+                for (int j = 0; j < BOARD_SIZE; j++) {
+                    walls[i][j] = (new Wall(new Position(i, j), map[i][j]));
+                }
+            }
+            this.player = player;
+            this.monster = monster;
+            steps = 0;
+        } else {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    /**
      * Vissa adja a játékost reprezentáló {@code Piece} objektumot.
      *
      * @return vissa adja a játékost reprezentáló {@code Piece} objektumot
@@ -196,17 +217,7 @@ public class BoardGameModel {
             getMonster().moveTo(PawnDirection.DOWN);
         }else if (! goal.equals(position)){
             Set<PawnDirection> validMoves = getValidMoves(monster);
-            //int item = new Random().nextInt(validMoves.size());
-            //int i = 0;
             var direction = validMoves.iterator().next();
-            /*for(PawnDirection dir : validMoves)
-            {
-                if (i == item) {
-                    direction = dir;
-                    break;
-                }
-                i++;
-            }*/
             getMonster().moveTo(direction);
         }
     }

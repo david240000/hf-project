@@ -14,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.tinylog.Logger;
 
@@ -28,6 +29,9 @@ public class WinController {
 
     @FXML
     private TextField name;
+
+    @FXML
+    private Text stepsshow;
 
     private String name1;
 
@@ -67,6 +71,7 @@ public class WinController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/result.fxml"));
         stage.setScene(new Scene(root));
+        Logger.info("Going to the results screen");
         stage.show();
     }
 

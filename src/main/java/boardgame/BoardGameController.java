@@ -149,10 +149,10 @@ public class BoardGameController {
     }
 
     private void end(MouseEvent event) {
+        Logger.info("Game over");
         Alert about = new Alert(Alert.AlertType.INFORMATION);
         about.setTitle("Vége");
         about.setHeaderText("JavaFX Text Editor");
-
         if (model.isMonsterWin()) {
             about.setHeaderText("A szörny nyert");
             about.showAndWait();
@@ -163,7 +163,7 @@ public class BoardGameController {
                 e.printStackTrace();
             }
         }else {
-            Logger.info("Win");
+            Logger.info("Win");;
             try {
                 switchToWin(event);
             } catch (IOException e) {
@@ -243,15 +243,16 @@ public class BoardGameController {
     }
 
     private void switchToMenu(MouseEvent event) throws IOException {
+        Logger.info("Going to the menu");
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/menu.fxml"));
         stage.setTitle("Menu");
         stage.setScene(new Scene(root));
-        Logger.info("Going to menu");
         stage.show();
     }
 
     private void switchToWin(MouseEvent event) throws IOException {
+        Logger.info("Going to win screen");
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/win.fxml"));
         Parent root = fxmlLoader.load();
         WinController controller = fxmlLoader.<WinController>getController();

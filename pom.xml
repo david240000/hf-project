@@ -6,7 +6,7 @@
     <artifactId>homework-template-project</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
-    <description></description>
+    <description>A little board game.</description>
     <developers>
         <developer>
             <name>György Dávid Gellért</name>
