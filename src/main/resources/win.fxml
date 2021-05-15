@@ -11,6 +11,7 @@
   </columnConstraints>
   <rowConstraints>
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
@@ -20,12 +21,22 @@
             <Font size="74.0" />
          </font>
       </Label>
-      <Label text="Add meg a neved:" GridPane.rowIndex="1">
+      <Label text="Add meg a neved:" GridPane.rowIndex="2">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <TextField fx:id="name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <Button mnemonicParsing="false" onAction="#switchBack" prefHeight="26.0" prefWidth="125.0" text="OK" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField fx:id="name" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Button mnemonicParsing="false" onAction="#switchBack" prefHeight="26.0" prefWidth="125.0" text="OK" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <Text fx:id="stepsshow" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Label text="Az elért eredményed:" GridPane.rowIndex="1">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
    </children>
 </GridPane>

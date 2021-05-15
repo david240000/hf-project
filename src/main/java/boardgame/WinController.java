@@ -41,7 +41,12 @@ public class WinController {
 
     public void setSteps(int steps){
         this.steps = steps;
+        setStepsshow();
         Logger.info("Settings steps to {}", steps);
+    }
+
+    private void setStepsshow(){
+        stepsshow.setText(String.valueOf(steps)+" lépés");
     }
 
     @FXML
