@@ -26,8 +26,6 @@ class BoardGameModelTest {
 
     Piece monster2 = new Piece(PieceType.MONSTER, new Position(0, 0));
 
-    BoardGameModel model1 = new BoardGameModel(player1, monster1);
-
     BoardGameModel model2 = new BoardGameModel(player3, monster1);
 
     BoardGameModel model3 = new BoardGameModel(player1, monster2);
